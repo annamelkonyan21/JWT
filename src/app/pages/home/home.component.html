@@ -1,0 +1,55 @@
+<div class="home">
+  <div class="header" [ngSwitch]="nav">
+    <div class="header-title" *ngSwitchCase="'login'">
+      Login
+    </div>
+    <div class="header-title" *ngSwitchCase="'registration'">
+      Registration
+    </div>
+    <div *ngDefaultCase></div>
+  </div>
+  <div class="nav">
+    <p class="nav-button" [ngClass]="{'nav-button-active': active === 'login'}" (click)="setValue('login','login')">Login</p>
+    <p class="nav-button" [ngClass]="{'nav-button-active': active === 'registration'}" (click)="setValue('registration', 'registration')">Registration</p>
+  </div>
+  <div class="body" [ngSwitch]="nav">
+      <div class="body1" *ngSwitchCase="'login'">
+        <form novalidate  [formGroup]="loginForm">
+          <div class="form_div">
+            <label class="form_label em">Email</label>
+            <input class="form_input" type="text" formControlName="email" placeholder="Enter Email"/>  
+          </div>
+          <div class="form_div">
+              <label class="form_label">Password</label>
+              <input class="form_input" type="password"  formControlName="password" placeholder="Enter Password"/>
+          </div>
+          
+        </form>
+        <button (click)="login()">Login</button>
+        
+      </div>
+      <div class="body1" *ngSwitchCase="'registration'">
+          <form novalidate [formGroup]="registerForm">
+              <div class="form_div">
+                <label class="form_label">First Name</label>
+                <input class="form_input" type="text" formControlName="firstname" placeholder="Enter First Name"/>  
+              </div>
+              <div class="form_div">
+                <label class="form_label">Last Name</label>
+                <input class="form_input" type="password"  formControlName="lastname" placeholder="Enter Last Name"/>
+              </div>
+              <div class="form_div">
+                <label class="form_label em2">Email</label>
+                <input class="form_input" type="text" formControlName="email"  placeholder="Enter Email"/>  
+              </div>
+              <div class="form_div">
+                <label class="form_label em3">Password</label>
+                <input class="form_input" type="password"  formControlName="password" placeholder="Enter Password"/>
+              </div>
+          </form>
+          <button (click)="registr()">Registration</button>
+        
+      </div>
+      <div *ngDefaultCase></div>
+  </div>
+</div>

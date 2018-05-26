@@ -1,0 +1,125 @@
+$bg-color: #ebeeef;
+$text-bg-color: white;
+$border-color: #535552;
+$color: $border-color;
+$color-active: #57b846;
+$text-color: #808080;
+$font-size: 18px;
+
+
+.home {
+    background-color: $bg-color;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    .header {
+        background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/office-table-background-7.jpg');
+        width: 50%;
+        margin-left: 25%;
+        //margin-top: 100px;
+        position: absolute;
+        top: 150px;
+        border-top-left-radius: 35px;
+        border-top-right-radius: 35px;
+        opacity: 0.7;
+        .header-title {
+            color: $text-bg-color;
+            font-size: 70px;
+            text-align: center;
+            padding-top: 115px;
+            padding-bottom: 115px;
+            text-transform: uppercase;
+        }
+
+    }
+    .nav {
+       font-family: 'Acme', sans-serif;
+        position: absolute;
+        top: 460px;
+        background-color: $text-bg-color;
+        width: 50%;
+        left: 25%;
+        .nav-button {
+            color: $color;
+            text-align: center;
+            float: left;
+            width: 50%;
+            padding: 15px 0px;
+            font-size: $font-size;
+            &:first-child {
+                border-right: 1px solid $border-color;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+            
+        }
+        .nav-button-active {
+              color: $color-active;  
+        }
+    }
+    .body {
+        font-family: 'Acme', sans-serif;
+        position: absolute;
+        top: 500px;
+        background-color: $text-bg-color;
+        width: 50%;
+        left: 25%;
+        border-top: 1px solid $border-color;
+        border-bottom-left-radius: 35px;
+        border-bottom-right-radius: 35px;
+        .body1 {
+            .form_div {
+                padding: 40px 10px;
+                .form_label{
+                    text-align: right;
+                    color: $text-color;
+                    font-size: $font-size;
+                    margin-left: 10%;
+                    margin-right: 5%;
+                }
+                .em {
+                    margin-right: 8.3% !important;
+                }
+                .em2 {
+                    margin-right: 10% !important;
+                }
+                .em3 {
+                    margin-right: 7% !important;
+                }
+                .form_input {
+                    width: 70%;
+                    border: none;
+                    padding-top: 10px;
+                    padding-left: 5px;
+                    padding-bottom: 10px;
+                    font-size: 18px;
+                    background: transparent;
+                    border-bottom: 1px solid $text-color;
+                    &:focus {
+                        outline: none;
+                        border: none;
+                        border-bottom: 1px solid $color-active;
+                    }
+                }
+            }
+            button {
+                margin-left: 25%;
+                margin-bottom: 37px;
+                width: 30%;
+                padding: 10px;
+                background-color: $border-color;
+                text-align: center;
+                font-size: $font-size;
+                margin-bottom: 20px;
+                border-radius: 35px;
+                background-color: $color-active;
+                color:  $text-bg-color;
+                border: none;
+                cursor: pointer;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
