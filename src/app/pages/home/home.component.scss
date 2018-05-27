@@ -5,6 +5,7 @@ $color: $border-color;
 $color-active: #57b846;
 $text-color: #808080;
 $font-size: 18px;
+$danger: red;
 
 
 .home {
@@ -101,6 +102,20 @@ $font-size: 18px;
                         outline: none;
                         border: none;
                         border-bottom: 1px solid $color-active;
+                    }
+                }
+                .alert {
+                    div {
+                        margin-left: 24%;
+                        margin-top: 10px;
+                        color: $danger;
+                    }
+                }
+                .alert-danger {
+                    div {
+                        margin-left: 27%;
+                        margin-top: 10px;
+                        color: $danger;
                     }
                 }
             }

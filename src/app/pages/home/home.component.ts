@@ -15,13 +15,13 @@ export class HomeComponent implements OnInit {
   
   constructor() {
     this.loginForm = new FormGroup({
-      email: new FormControl('',[Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
     this.registerForm = new FormGroup({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
-      email: new FormControl('',[Validators.required, Validators.email]), 
+      email: new FormControl('', [Validators.required, Validators.email]), 
       password: new FormControl('', Validators.required)
     });
 
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value);
+    console.log(this.loginForm);
     if(this.loginForm.value['email'] === 'admin' && this.loginForm.value['password'] === 'admin') {
       alert("its done")
     }

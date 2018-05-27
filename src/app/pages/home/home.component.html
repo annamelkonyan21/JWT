@@ -17,11 +17,21 @@
         <form novalidate  [formGroup]="loginForm">
           <div class="form_div">
             <label class="form_label em">Email</label>
-            <input class="form_input" type="text" formControlName="email" placeholder="Enter Email"/>  
+            <input class="form_input" type="text" formControlName="email" placeholder="Enter Email"/> 
+            <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="alert">
+              <div *ngIf="loginForm.controls['email'].errors.required">
+                Email is required.
+              </div>
+            </div>
           </div>
           <div class="form_div">
               <label class="form_label">Password</label>
               <input class="form_input" type="password"  formControlName="password" placeholder="Enter Password"/>
+              <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="alert">
+                <div *ngIf="loginForm.controls['password'].errors.required">
+                  Email is required.
+                </div>
+              </div>
           </div>
           
         </form>
@@ -33,18 +43,38 @@
               <div class="form_div">
                 <label class="form_label">First Name</label>
                 <input class="form_input" type="text" formControlName="firstname" placeholder="Enter First Name"/>  
+                <div *ngIf="registerForm.controls['firstname'].invalid && (registerForm.controls['firstname'].dirty || registerForm.controls['firstname'].touched)" class="alert-danger">
+                  <div *ngIf="registerForm.controls['firstname'].errors.required">
+                    First Name is required.
+                  </div>
+                </div>
               </div>
               <div class="form_div">
                 <label class="form_label">Last Name</label>
-                <input class="form_input" type="password"  formControlName="lastname" placeholder="Enter Last Name"/>
+                <input class="form_input" type="text"  formControlName="lastname" placeholder="Enter Last Name"/>
+                <div *ngIf="registerForm.controls['lastname'].invalid && (registerForm.controls['lastname'].dirty || registerForm.controls['lastname'].touched)" class="alert-danger">
+                  <div *ngIf="registerForm.controls['lastname'].errors.required">
+                    Last Name is required.
+                  </div>
+                </div>
               </div>
               <div class="form_div">
                 <label class="form_label em2">Email</label>
                 <input class="form_input" type="text" formControlName="email"  placeholder="Enter Email"/>  
+                <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" class="alert-danger">
+                  <div *ngIf="registerForm.controls['email'].errors.required">
+                    Email is required.
+                  </div>
+                </div>
               </div>
               <div class="form_div">
                 <label class="form_label em3">Password</label>
                 <input class="form_input" type="password"  formControlName="password" placeholder="Enter Password"/>
+                <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm .controls['password'].touched)" class="alert-danger">
+                  <div *ngIf="registerForm.controls['password'].errors.required">
+                    Password is required.
+                  </div>
+                </div>
               </div>
           </form>
           <button (click)="registr()">Registration</button>
