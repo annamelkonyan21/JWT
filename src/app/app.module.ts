@@ -1,35 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-//-------------------- module ----------------------------
-
 import { AppRoutingModule } from './app-routing.module';
-
-//-------------------- component ----------------------------
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ReactiveFormsModule} from '@angular/forms';
+import { BeforeHomeComponent } from './pages/before-home/before-home.component';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthGuard} from './guards/auth.guard';
+
+import {InterceptorService} from './services/interceptor.service';
 import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
 
-//-------------------- imports ----------------------------
-
-import { ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    BeforeHomeComponent,
     LoginComponent,
-    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

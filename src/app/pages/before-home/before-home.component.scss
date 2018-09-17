@@ -1,23 +1,27 @@
 $color-active: #57b846;
-$text-bg-color: white;
+$text-bg-color: #fff;
 
-div {
+.display {
   display: flex;
   align-items: center;
+  flex-direction:column;
   margin-top: 20%;
-  flex-direction: column;
-
-  .logout {
-    margin-top: 20px;
+  .email, .password {
+    font-size: 24px;
+    line-height: 2;
+  }
+  .success {
     width: 30%;
     padding: 10px;
     text-align: center;
-    font-size: 20px;
     border-radius: 35px;
     background-color: $color-active;
-    color: $text-bg-color;
+    color:  $text-bg-color;
+    font-size: 20px;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
+    margin: 20px 35%;
   }
+
 }

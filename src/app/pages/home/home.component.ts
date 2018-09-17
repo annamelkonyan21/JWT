@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,45 +8,14 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 })
 export class HomeComponent implements OnInit {
 
-  public nav: string =  "login";
-  public active: string = "login";
-  public loginForm: FormGroup;
-  public registerForm: FormGroup;
-  
-  constructor() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
-    });
-    this.registerForm = new FormGroup({
-      firstname: new FormControl('', Validators.required),
-      lastname: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]), 
-      password: new FormControl('', Validators.required)
-    });
-
-
-   }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  setValue(nav, active) {
-    this.nav = nav;
-    this.active = active;
-    console.log(nav);
+  logout() {
+    localStorage.removeItem('currentUser')
+    this.router.navigateByUrl('/');
   }
 
-  login() {
-    console.log(this.loginForm);
-    if(this.loginForm.value['email'] === 'admin' && this.loginForm.value['password'] === 'admin') {
-      alert("its done")
-    }
-
-  }
-
-  registr() {
-    console.log(this.registerForm);
-    alert("you create new account")
-  }
 }
